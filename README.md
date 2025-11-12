@@ -64,7 +64,8 @@ grep -oE '[a-f0-9]{32}' /etc/passwd.backup       # MD5
 grep -oE '\$[0-9]\$\S+' /etc/shadow             # SHA-512 (Linux)
 strings memory.dmp | grep -E '^[A-Za-z0-9+/]{20,}={0,2}$'  # Base64 clues
 
-# Cracking with Hashcat
+# Cracking with Hashcat and john
+./john --format=nt hash.txt --wordlist=rockyou.txt (can specify format to protected zip files, ssh keys ...)
 hashcat -m 0   hash.txt /usr/share/wordlists/rockyou.txt   # MD5
 hashcat -m 1800 hash.txt /usr/share/wordlists/rockyou.txt # SHA-512
 
@@ -75,6 +76,9 @@ echo "uryyb jbeyq" | tr 'a-z' 'n-za-m'  # ROT13
 
 # Used CyberChef (offline/local) for multi-step decoding chains (e.g., Base64 → ROT13 → XOR)
 
+#Binwalk and steghide for hidden messages in images
+Steghide image.png /extract
+binwalk image.png (-e option to extract)
 ```
 ⛓️ 3. Privilege Escalation
 
@@ -140,9 +144,13 @@ nc -nvlp 4444
 Goals Achieved in Labs/CTFs
 
 1 gain root privilegs through web exploitaion and privilege escalation → Full system compromise
+
 2 Dump and crack /etc/shadow → Credential reuse demonstration
+
 3 Extract database contents via SQLi → Data exfiltration risk
+
 4 Pivot to internal machines using reused SSH keys → Lateral movement
+
 5 Decode hidden messages in images (steganography) → CTF flag retrieval
 
 

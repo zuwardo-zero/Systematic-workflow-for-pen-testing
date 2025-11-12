@@ -2,9 +2,9 @@
 
 My experience summary and documentation for hands-on techniques and tools, enumeration workflows,vulenrability reaserch, exloitation and privilege escalation methods practiced in CTF challenges as well as practical labs, which summarizes most aspects of the kill chain process.
 
-Top 8% on THM: https://tryhackme.com/p/WIZ.ZERO 
+> **TryHackMe Profile**: Top 8% ://tryhackme.com/p/WIZ.ZERO 
 
-> **TryHackMe Profile**: [wizard-zero](https://tryhackme.com/p/wizard-zero)  
+
 > **Environment**: All activities performed in authorized, isolated labs (TryHackMe, VulnHub, Hack The Box Starting Point). No external systems targeted.
 
 ---

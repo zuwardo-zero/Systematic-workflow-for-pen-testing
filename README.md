@@ -4,10 +4,6 @@ My experience summary and documentation for hands-on techniques and tools, enume
 
 Top 8% on THM: https://tryhackme.com/p/WIZ.ZERO 
 
-# Systematic Workflow for Penetration Testing
-
-My experience summary and documentation of hands-on techniques, tools, enumeration workflows, vulnerability research, exploitation, and privilege escalation methods practiced in CTF challenges and practical labs. This reflects a structured approach aligned with the **cyber kill chain**: Recon → Weaponization → Delivery → Exploitation → Installation → C2 → Actions on Objectives.
-
 > **TryHackMe Profile**: [wizard-zero](https://tryhackme.com/p/wizard-zero)  
 > **Environment**: All activities performed in authorized, isolated labs (TryHackMe, VulnHub, Hack The Box Starting Point). No external systems targeted.
 

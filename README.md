@@ -18,13 +18,13 @@ I follow a repeatable, layered enumeration process to minimize missed vectors an
 # Full-port scan with default scripts and version detection
 nmap -sC -sV -p- --min-rate=1000 -T4 <target>
 
-# Directory brute-forcing with custom wordlist
-gobuster dir -u http://<target> -w /wiz/Documents/wordlists/commondir.txt -x php,html,txt
+# Automated directory enumeration
+dirb http://<target>
 
-# Automated web scanner
+# Web scanner
 nikto -h http://<target>
 
-# Manual inspection & request manipulation
+# Manual inspection & http manipulation
 # → BurpSuite used to test for IDOR, auth bypass, and misconfigurations
 
 smbclient -L \\\\<target>\\ -N          # List shares anonymously

@@ -25,17 +25,17 @@ I follow a structured, layered enumeration process to minimize missed vectors an
 # Full-port scan with default scripts and version detection
 nmap -sC -sV -p- --min-rate=1000 -T4 <target>
 
-# Automated directory enumeration
+# web directory enumeration
 dirb http://<target>
 
 # Web scanner
-nikto -h http://<target>
+nuclei -u http://<target> --- can add rate limiting and specefic tags to lower requests ( -rl 10 tags wordpress) for example
 
-# Manual inspection & http manipulation
-# → BurpSuite used to test for IDOR, auth bypass, and misconfigurations
+# Manual inspection for user input, xxs for example <script>alert(1)</script>
+# → BurpSuite to analyze requests, test for OWASP top 10 and misconfigurations
 
 smbclient -L \\\\<target>\\ -N          # List shares anonymously
-enum4linux -a <target>                 # Full SMB enumeration
+enum4linux -a <target>                 # SMB enumeration
 
 # Extract metadata from images (CTF steganography / real-world leaks)
 exiftool image.png
@@ -52,10 +52,10 @@ sherlock username
 ```bash
 
 # Online brute-forcing (SSH, FTP, HTTP forms ...)
-hydra -l admin -P /usr/share/wordlists/rockyou.txt <target> ssh -V
+hydra -l username -P /usr/share/wordlists/rockyou.txt <target> ssh -V
 hydra -L users.txt -P passwords.txt <target> http-post-form "/login:username=^USER^&password=^PASS^:Invalid credentials"
-
-# Automated SQL injection
+---usally not my recommended approach
+# SQL injection
 sqlmap -u "http://<target>/page?id=1" --dump --batch
 
 # Manual RCE via command injection or file upload
@@ -71,8 +71,8 @@ strings memory.dmp | grep -E '^[A-Za-z0-9+/]{20,}={0,2}$'  # Base64 clues
 ./john --format=nt hash.txt --wordlist=rockyou.txt (can specify format to protected zip files, ssh keys ...)
 hashcat -m 0   hash.txt /usr/share/wordlists/rockyou.txt   # MD5
 hashcat -m 1800 hash.txt /usr/share/wordlists/rockyou.txt # SHA-512
-
-# Cipher decryption (CTF-focused)
+--- sometimes using crackstation.com
+# Cipher decryption
 # → Identified ROT13, Base64, XOR, Caesar via frequency analysis
 echo "SGVsbG8gd29ybGQh" | base64 -d
 echo "uryyb jbeyq" | tr 'a-z' 'n-za-m'  # ROT13
@@ -146,15 +146,15 @@ nc -nvlp 4444
 ```
 Goals Achieved in Labs/CTFs
 
-1 gain root privilegs through web exploitaion and privilege escalation → Full system compromise
+1 gain root privilegs through web exploitaion and privilege escalation 
 
-2 Dump and crack /etc/shadow → Credential reuse demonstration
+2 Cryptograhpy, Stegnography, Hash cracking
 
-3 Extract database contents via SQLi → Data exfiltration risk
+3 Pivoting and lateral movement
 
-4 Pivot to internal machines using reused SSH keys → Lateral movement
+4 Binary exploitation and living off the land
 
-5 Decode hidden messages in images (steganography) → CTF flag retrieval
+5 Obfuscation, firewall and antivirus bypass
 
 
 

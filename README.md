@@ -5,12 +5,14 @@ A part of my experience summary and documentation for hands-on techniques and to
 
 > **TryHackMe Profile**: Top 4% https://tryhackme.com/p/WIZ.ZERO
 
+> **Environment**: All activities performed in authorized, isolated labs (TryHackMe, VulnHub, Hack The Box, Personal machines). No external systems targeted.
+
 This is one of the recents challenges that I have finished, a full red team operation involving an internal network of an AI startup "AI.vanchat.loc" starting with exploiting the web server through LLM prompt injection, then bypassing firewalls to compromise 1 database, 4 servers, 3 domain controllers, child-parent domain attack, supply chain attack including mysql server and cross domain attack.
 <img width="1267" height="657" alt="Screenshot from 2025-12-29 21-49-44" src="https://github.com/user-attachments/assets/b8cfefe9-9aaf-4082-a9f2-abbebb389312" />
 ✔️ Privilege escalation, pivoting and lateral movement through tunnel forwarding, privilege exploits with tools like Printspoofer and msi packages execution, credentials harvesting with mimikatz, NTLM hash attacks, certificate and kerberos tickets attacks etc ...
 
 
-> **Environment**: All activities performed in authorized, isolated labs (TryHackMe, VulnHub, Hack The Box, Personal machines). No external systems targeted.
+
 
 ---
 

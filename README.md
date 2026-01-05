@@ -29,7 +29,8 @@ nmap -sC -sV -p- --min-rate=1000 -T4 <target>
 dirb http://<target>
 
 # Web scanner
-nuclei -u http://<target> --- can add rate limiting and specefic tags to lower requests ( -rl 10 tags wordpress) for example
+nuclei -u http://<target> --- can add rate limiting and specefic tags to lower requests
+( -rl 5 tags wordpress) for example
 
 # Manual inspection for user input, xxs for example <script>alert(1)</script>
 # → BurpSuite to analyze requests, test for OWASP top 10 and misconfigurations

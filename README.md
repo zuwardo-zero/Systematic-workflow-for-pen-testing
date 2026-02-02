@@ -32,7 +32,7 @@ nuclei -u http://<target> --- can add rate limiting and specefic tags to lower r
 ( -rl 5 tags wordpress) for example
 
 #Subdomain enumeration: I usally use subfinder, dnsrecon along with httpx
-Subfinder -d target.com | httpx -status-code -title
+Subfinder -d target.com --all --recursive | httpx -status-code -title
 
 # OSINT eumeration:
 Shodan, Censys and Securitytails are always useful to identify any ip hosts and certificates to bypass WAF proxies 

@@ -14,11 +14,10 @@ This is one of the recents challenges that I have finished, a red team operation
 
 ---
 
-## 🔍 1. Reconnaissance & Enumeration
-
 I follow a structured, layered enumeration process to minimize missed vectors and build a complete attack surface map.
 
-### Network & Service Discovery
+## 🔍 Reconnaissance & Enumeration
+
 ```bash
 # Full-port scan with default scripts and version detection, I can snipe specific ports depending on the situation
 nmap -sC -sV -p- -T4 <target>
@@ -59,7 +58,7 @@ exiftool image.png
 
 
 ```
-💥 2. Initial Access
+💥 Addtional tools 
 
 ```bash
 
@@ -91,7 +90,7 @@ echo "uryyb jbeyq" | tr 'a-z' 'n-za-m'  # ROT13
 Steghide image.png /extract
 binwalk image.png (-e option to extract)
 ```
-⛓️ 3. Privilege Escalation
+⛓️ Privilege Escalation
 
 Escalating from initial low-privilege access to full system control.
 

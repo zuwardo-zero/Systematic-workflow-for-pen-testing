@@ -26,7 +26,8 @@ nmap -sC -sV -p- -T4 <target>
 dirb http://<target>
 ffuf -w wordlist-fuzz.txt -u https://target/FUZZ -rate 1 -mc 400,401,402,403,429,500,501,502,503 -H "User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36"    
 
-# Web scanner: Personally I don't use this tool much espically with WAF protected apps, but sometimes I use it with proxy list and specific headers, tags and parameters to not miss low hanging fruits
+# Web scanner: Personally I don't use this tool much espically with WAF protected apps,
+but sometimes I use it with proxy list and specific headers, tags and parameters to not miss low hanging fruits
 nuclei -u http://<target> --- can add rate limiting and specefic tags to lower requests
 ( -rl 5 tags wordpress) for example
 
@@ -41,13 +42,16 @@ Waybackurls target.com > file.txt
 then check for interesting files (txt, php, json ...) and important endpoints (containing keywords like admin, config ...)
 
 After this I classify each target based on the response to work on them:
-So 200 as first priority then try to idnetify what is required to pass 403,401 (like tokens and ip whitelisting) and attempt techniques to bypass
+So 200 as first priority then try to idnetify what is required to pass 403,401 (like tokens and ip whitelisting)and attempt techniques to bypass
 Try to look for hidden endpoints at 404 targets 
 500, 501, 503 usally indicate issues with the target server but they're worth investigating.
 Some uncommon responses like 410 should be checked too (One time I faced a 418 teapot response in bug bounty, 
 
-# Explore the target app to understand business logic. Manual inspection for user input to check for client side injections, identify cookies, tokens check for Oauth misconfigs and various exposures, attempt redirct to explore and server side injections, Account takeover and such. 
-# → BurpSuite or caido to analyze requests, headers and identify endpoints, test for OWASP top 10 (depending on the situation), attempt to make unathorized requests and such.
+# Explore the target app to understand business logic.
+Manual inspection for user input to check for client side injections, identify cookies, tokens check for Oauth misconfigs
+and various exposures, attempt redirct to explore and server side injections, Account takeover and such. 
+# → BurpSuite or caido to analyze requests, headers and identify endpoints, test for OWASP top 10
+(depending on the situation), attempt to make unathorized requests and such.
 
 # For windows machines, checking SMB, LDAP and related ports to windows ports is the common way ahead
 
